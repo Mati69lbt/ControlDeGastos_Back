@@ -4,7 +4,7 @@ const { Schema, model } = require("mongoose");
 const GastosSchema = Schema({
   fecha: {
     type: Date,
-    default: Date.now(),
+    required: true,
   },
   lugar: {
     type: String,
