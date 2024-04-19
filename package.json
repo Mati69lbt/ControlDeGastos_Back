@@ -19,12 +19,14 @@
   "homepage": "https://github.com/Mati69lbt/ControlDeGastos_Back#readme",
   "dependencies": {
     "@formkit/tempo": "^0.0.17",
+    "cloudinary": "^1.21.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.18.3",
     "mongoose": "^8.2.2",
     "mongoose-paginate": "^5.0.3",
     "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
     "nodemon": "^3.1.0",
     "validator": "^13.11.0"
   }
