@@ -38,10 +38,14 @@ const conseguir_un_solo_gasto = require("../controladores/un_gasto");
 // Importaciones de capturas
 const subir_captura_a_bd = require("../controladores/subir_captura");
 const Leer_Capturas = require("../controladores/Leer_Capturas");
+const eliminar_tabla = require("../controladores/Eliminar_Tabla");
 
 // Ruta  para subir capturas de pantallas
 router.post("/subirImagen", parser.single("captura"), subir_captura_a_bd);
 router.get("/registros", Leer_Capturas);
+
+// Eliminar Tabla
+router.delete("/eliminarTabla", eliminar_tabla);
 
 // Rutas
 router.post("/crear", crear_Gastos);

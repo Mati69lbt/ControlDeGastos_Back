@@ -12,7 +12,7 @@ const leer_Gastos = async (req, res) => {
       busqueda = busqueda.limit(parseInt(parametros_url));
     }
 
-    const gastos = await busqueda.sort({ fecha: -1 }).exec();
+    const gastos = await busqueda.sort({ fecha: 1 }).exec();
 
     if (!gastos || gastos.length === 0) {
       return res.status(404).json({
