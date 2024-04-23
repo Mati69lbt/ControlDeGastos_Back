@@ -40,6 +40,14 @@ const subir_captura_a_bd = require("../controladores/subir_captura");
 const Leer_Capturas = require("../controladores/Leer_Capturas");
 const eliminar_tabla = require("../controladores/Eliminar_Tabla");
 
+// Importaciones de Lista de Compras
+const agregar_Producto = require("../controladores/compras/agregar_producto");
+const editar_Producto = require("../controladores/compras/editar_productos");
+const eliminar_producto = require("../controladores/compras/eliminar_productos");
+const leer_productos = require("../controladores/compras/leer_productos");
+const eliminar_listaDeCompras = require("../controladores/compras/eliminar_listaDeProductos");
+const buscar_unProducto = require("../controladores/compras/buscar_unProducto");
+
 // Ruta  para subir capturas de pantallas
 router.post("/subirImagen", parser.single("captura"), subir_captura_a_bd);
 router.get("/registros", Leer_Capturas);
@@ -47,7 +55,15 @@ router.get("/registros", Leer_Capturas);
 // Eliminar Tabla
 router.delete("/eliminarTabla", eliminar_tabla);
 
-// Rutas
+// Rutas de Lista de Compras
+router.post("/nuevo-producto", agregar_Producto);
+router.put("/editar-producto/:id", editar_Producto);
+router.delete("/eliminar-producto/:id", eliminar_producto);
+router.get("/leer-productos", leer_productos);
+router.delete("/eliminar-todos-los-productos", eliminar_listaDeCompras);
+router.get("/buscar-producto/:id", buscar_unProducto);
+
+// Rutas de Gastos
 router.post("/crear", crear_Gastos);
 router.get("/listado", leer_Gastos);
 router.delete("/borrar/:id", eliminar_Gasto);
