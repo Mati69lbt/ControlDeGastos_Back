@@ -11,12 +11,33 @@ const Leer_Capturas = async (req, res) => {
         error: error.message,
       });
     } else {
-      res.status(200).json({
-        status: "success",
-        contador: capturas.length,
-        capturas,
-      });
+         capturas.sort((a, b) => {
+           const meses = [
+             "Enero",
+             "Febrero",
+             "Marzo",
+             "Abril",
+             "Mayo",
+             "Junio",
+             "Julio",
+             "Agosto",
+             "Septiembre",
+             "Octubre",
+             "Noviembre",
+             "Diciembre",
+           ];
+           const [mesA, yearA] = a.mes.split(" - ");
+           const [mesB, yearB] = b.mes.split(" - ");
+           const dateA = new Date(yearA, meses.indexOf(mesA));
+           const dateB = new Date(yearB, meses.indexOf(mesB));
+           return dateB - dateA;
+         });
     }
+    res.status(200).json({
+      status: "success",
+      contador: capturas.length,
+      capturas,
+    });
   } catch (error) {
     return res.status(500).json({
       status: "error",
